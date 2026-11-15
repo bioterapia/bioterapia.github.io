@@ -24,8 +24,16 @@
 <script>
   /* La agenda vive en Google Apps Script (entra con la contraseña de la agenda). Esta página sólo la muestra a pantalla completa. */
   var AGENDA = 'https://script.google.com/macros/s/AKfycbziMAJL_0fkCpJrYMDcep7UmvXpvthdubDEl2f2fhMVLvcj-W70G7ePkqgaMEFgZq-c/exec';
+  /* Recuerda la sesión en este celu/compu: la agenda avisa cuando entrás o salís */
+  var tok = ''; try { tok = localStorage.getItem('agenda_tok') || ''; } catch (e) {}
+  window.addEventListener('message', function (ev) {
+    if (!/\.googleusercontent\.com$|^https:\/\/script\.google\.com$/.test(ev.origin)) return;
+    if (!ev.data || typeof ev.data.agendaTok !== 'string') return;
+    try { if (ev.data.agendaTok) localStorage.setItem('agenda_tok', ev.data.agendaTok); else localStorage.removeItem('agenda_tok'); } catch (e) {}
+  });
+  var q = location.search ? location.search + '&' : '?';
   var cargo = false; document.getElementById('agenda').onload = function () { cargo = true; };
-  document.getElementById('agenda').src = AGENDA + location.search;
+  document.getElementById('agenda').src = AGENDA + (tok ? q + 'k=' + encodeURIComponent(tok) : location.search);
   document.getElementById('directo').href = AGENDA + location.search;
   setTimeout(function () { if (!cargo) document.getElementById('ayuda').style.display = 'block'; }, 15000);
 </script>
