@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda · Ailen &amp; Marce</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-title" content="Agenda A&amp;M">
+<style>
+  html,body{margin:0;height:100%;background:#fff;font-family:system-ui,-apple-system,sans-serif}
+  iframe{position:fixed;inset:0;border:0;width:100%;height:100%;display:block}
+  #ayuda{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);display:none;background:#fff;border:1px solid #ddd;border-radius:14px;padding:10px 14px;box-shadow:0 6px 24px rgba(0,0,0,.12);font-size:14px;color:#333;z-index:2;text-align:center;max-width:92vw}
+  #ayuda a{color:#0d9488;font-weight:700}
+  #ayuda button{margin-left:8px;border:0;background:none;color:#888;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<iframe id="agenda" title="Agenda · Ailen & Marce" allow="clipboard-write"></iframe>
+<div id="ayuda">¿No carga? <a id="directo" target="_top">Abrir la agenda directamente</a><button onclick="this.parentNode.style.display='none'" aria-label="Cerrar">✕</button></div>
+<script>
+  /* La agenda vive en Google Apps Script (con inicio de sesión de Google). Esta página sólo la muestra a pantalla completa. */
+  var AGENDA = 'https://script.google.com/macros/s/AKfycbziMAJL_0fkCpJrYMDcep7UmvXpvthdubDEl2f2fhMVLvcj-W70G7ePkqgaMEFgZq-c/exec';
+  document.getElementById('agenda').src = AGENDA + location.search;
+  document.getElementById('directo').href = AGENDA + location.search;
+  setTimeout(function () { document.getElementById('ayuda').style.display = 'block'; }, 8000);
+</script>
+</body>
+</html>
