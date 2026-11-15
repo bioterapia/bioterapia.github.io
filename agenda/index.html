@@ -24,7 +24,10 @@
 <script>
   /* La agenda vive en Google Apps Script (con inicio de sesión de Google). Esta página sólo la muestra a pantalla completa. */
   var AGENDA = 'https://script.google.com/macros/s/AKfycbziMAJL_0fkCpJrYMDcep7UmvXpvthdubDEl2f2fhMVLvcj-W70G7ePkqgaMEFgZq-c/exec';
-  document.getElementById('agenda').src = AGENDA + location.search;
+  /* En el celu Google no deja iniciar sesión dentro de otra página (da error 401): ahí se abre la agenda directamente. */
+  var celu = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && window.innerWidth < 1024);
+  if (celu) { location.replace(AGENDA + location.search); }
+  else { document.getElementById('agenda').src = AGENDA + location.search; }
   document.getElementById('directo').href = AGENDA + location.search;
   setTimeout(function () { document.getElementById('ayuda').style.display = 'block'; }, 8000);
 </script>
