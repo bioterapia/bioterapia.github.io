@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+<defs>
+  <filter id="wc" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" scale="38"/>
+    <feGaussianBlur stdDeviation="2.5"/>
+  </filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 0.93 0 0 0 0 0.5 0 0 0 0 0.6 0 0 0 .18 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <radialGradient id="pk" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#FBD3DC"/><stop offset=".7" stop-color="#F6B7C5"/><stop offset="1" stop-color="#F2A5B6"/></radialGradient>
+  <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECE6E6"/></linearGradient>
+  <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#B0687C" flood-opacity=".28"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+  <g id="mask"><path d="M-82,-118 C-30,-138 30,-138 82,-118 C98,-60 96,10 74,60 C52,108 22,128 0,130 C-22,128 -52,108 -74,60 C-96,10 -98,-60 -82,-118 Z" fill="url(#mk)" filter="url(#sh)"/></g>
+  <g id="leaf"><path d="M0,0 C10,-18 30,-22 44,-18 C34,-6 18,2 0,0 Z"/></g>
+</defs>
+<!-- watercolor blob -->
+<circle cx="300" cy="300" r="250" fill="url(#pk)" filter="url(#wc)" opacity=".85"/>
+<circle cx="300" cy="300" r="250" fill="#000" filter="url(#grain)" opacity=".6"/>
+<g fill="#F2A5B6" opacity=".55" filter="url(#soft)">
+  <circle cx="70" cy="140" r="9"/><circle cx="95" cy="110" r="5"/><circle cx="540" cy="420" r="10"/><circle cx="520" cy="460" r="5"/><circle cx="470" cy="80" r="6"/>
+</g>
+<g fill="#8FCDB5" opacity=".6" filter="url(#soft)"><circle cx="110" cy="470" r="8"/><circle cx="140" cy="500" r="4"/><circle cx="500" cy="140" r="5"/></g>
+
+<!-- sprigs -->
+<g transform="translate(110,250) rotate(-70)">
+  <path d="M0,0 C40,-10 90,-10 150,0" stroke="#6FB59B" stroke-width="3" fill="none"/>
+  <g fill="#8FCDB5" opacity=".9">
+    <use href="#leaf" transform="translate(30,-3) rotate(-30)"/><use href="#leaf" transform="translate(30,-3) rotate(150) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(70,-6) rotate(-30)"/><use href="#leaf" transform="translate(70,-6) rotate(150) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(110,-4) rotate(-30)"/><use href="#leaf" transform="translate(110,-4) rotate(150) scale(1,-1)"/>
+  </g>
+</g>
+<g transform="translate(500,330) rotate(-110)">
+  <path d="M0,0 C40,-8 90,-8 160,0" stroke="#9C5A8C" stroke-width="3" fill="none"/>
+  <g fill="#B67AA8" opacity=".85">
+    <use href="#leaf" transform="translate(30,-3) rotate(-30)"/><use href="#leaf" transform="translate(30,-3) rotate(150) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(75,-5) rotate(-30)"/><use href="#leaf" transform="translate(75,-5) rotate(150) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(120,-4) rotate(-30)"/><use href="#leaf" transform="translate(120,-4) rotate(150) scale(1,-1)"/>
+  </g>
+</g>
+<g transform="translate(360,560) rotate(-35)">
+  <path d="M0,0 C40,-8 90,-8 130,0" stroke="#E98AA0" stroke-width="3" fill="none"/>
+  <g fill="#F3A3B5" opacity=".9">
+    <use href="#leaf" transform="translate(30,-3) rotate(-30)"/><use href="#leaf" transform="translate(30,-3) rotate(150) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(75,-5) rotate(-30)"/><use href="#leaf" transform="translate(75,-5) rotate(150) scale(1,-1)"/>
+  </g>
+</g>
+
+<!-- Mask 1: CONTROL (top) - lock, tense straight mouth -->
+<g transform="translate(300,190) scale(.84)">
+  <!-- strings belong to manipulation; here lock -->
+  <use href="#mask"/>
+  <g transform="translate(0,-70)" fill="none" stroke="#EE7F97" stroke-width="5" stroke-linecap="round">
+    <rect x="-16" y="-4" width="32" height="26" rx="6" fill="#F6A9BA" stroke="none"/>
+    <path d="M-10,-4 V-14 A10,10 0 0 1 10,-14 V-4"/>
+  </g>
+  <g stroke="#4C3F47" stroke-width="4.5" stroke-linecap="round" fill="none">
+    <path d="M-44,-14 L-18,-10"/><path d="M44,-14 L18,-10"/>
+    <path d="M-40,0 q12,-6 24,0"/><path d="M16,0 q12,-6 24,0"/>
+    <path d="M-22,62 L22,62"/>
+  </g>
+</g>
+
+<!-- Mask 2: MANIPULACIÓN (bottom-left) - marionette strings, sly smile -->
+<g transform="translate(170,405) scale(.8) rotate(-6)">
+  <g stroke="#B67AA8" stroke-width="2.5" opacity=".9">
+    <path d="M-45,-122 L-45,-200"/><path d="M0,-135 L0,-200"/><path d="M45,-122 L45,-200"/>
+    <path d="M-58,-202 L58,-202" stroke-width="7" stroke="#9C5A8C" stroke-linecap="round"/>
+    <path d="M0,-236 L0,-202" stroke-width="7" stroke="#9C5A8C" stroke-linecap="round"/>
+  </g>
+  <use href="#mask"/>
+  <g stroke="#4C3F47" stroke-width="4.5" stroke-linecap="round" fill="none">
+    <path d="M-42,-4 q14,-10 28,0"/><path d="M14,-8 q14,6 28,0"/>
+    <path d="M-28,58 q30,22 52,-8"/>
+  </g>
+  <circle cx="-40" cy="34" r="11" fill="#F6B3C2" opacity=".6"/>
+</g>
+
+<!-- Mask 3: PODER (bottom-right) - crown, stern -->
+<g transform="translate(430,405) scale(.8) rotate(6)">
+  <use href="#mask"/>
+  <path d="M-40,-118 L-46,-170 L-20,-142 L0,-178 L20,-142 L46,-170 L40,-118 Z" fill="#F2B8C6" stroke="#E07D96" stroke-width="3.5" stroke-linejoin="round"/>
+  <circle cx="0" cy="-178" r="6" fill="#E07D96"/>
+  <g stroke="#4C3F47" stroke-width="4.5" stroke-linecap="round" fill="none">
+    <path d="M-46,-22 L-16,-12"/><path d="M46,-22 L16,-12"/>
+    <path d="M-38,2 q10,6 20,0"/><path d="M18,2 q10,6 20,0"/>
+    <path d="M-24,66 q24,-14 48,0"/>
+  </g>
+</g>
+</svg>

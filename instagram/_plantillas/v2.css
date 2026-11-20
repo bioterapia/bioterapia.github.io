@@ -1,0 +1,27 @@
+@font-face{font-family:"Play";src:url("fonts/fontsource-playfair-display-5.3.0/package/files/playfair-display-latin-400-normal.woff2");font-weight:400}
+@font-face{font-family:"Play";src:url("fonts/fontsource-playfair-display-5.3.0/package/files/playfair-display-latin-500-normal.woff2");font-weight:500}
+@font-face{font-family:"Play";font-style:italic;src:url("fonts/fontsource-playfair-display-5.3.0/package/files/playfair-display-latin-400-italic.woff2")}
+@font-face{font-family:"Script";src:url("fonts/fontsource-great-vibes-5.3.0/package/files/great-vibes-latin-400-normal.woff2")}
+@font-face{font-family:"Mont";src:url("file:///usr/share/fonts/truetype/google-fonts/ofl/montserrat/Montserrat[wght].ttf");font-weight:100 900}
+:root{--violeta:#8E3B7E;--violeta-t:#6B2E61;--rosa:#EE7F97;--rosa-s:#F7C6D0;--menta:#8FCDB5;--menta-s:#D3EFE4;--crema:#FBF6F3;--texto:#5B4A55}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1080px}
+body{position:relative;overflow:hidden;background:var(--crema);font-family:"Mont",sans-serif;color:var(--texto)}
+.paper{position:absolute;inset:0;background:
+ radial-gradient(ellipse at 10% 95%, rgba(143,205,181,.35), transparent 45%),
+ radial-gradient(ellipse at 95% 100%, rgba(238,127,151,.22), transparent 45%),
+ radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.9), transparent 60%);}
+.brand{position:absolute;top:56px;left:0;right:0;text-align:center}
+.brand img{height:150px}
+.kicker{font-size:19px;letter-spacing:.3em;text-transform:uppercase;color:var(--violeta);font-weight:500}
+.rule{display:flex;align-items:center;gap:14px;margin:22px 0 26px}
+.rule i{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,#D9A9C6)}
+.rule i:last-child{background:linear-gradient(270deg,transparent,#D9A9C6)}
+.t1{font-family:"Play";font-weight:400;color:var(--violeta-t);line-height:.98}
+.t2{font-family:"Play";font-weight:400;color:var(--rosa);line-height:.98}
+.pill{display:inline-block;background:rgba(211,239,228,.85);border:1.5px solid #B9E2D2;border-radius:999px;padding:13px 26px;font-size:22px;color:var(--violeta-t);font-weight:500}
+.pill b{color:var(--rosa);font-weight:700;margin:0 6px}
+.desc{font-size:23px;line-height:1.5;color:var(--texto)}
+.desc em{font-style:normal;color:var(--rosa)}
+.script{font-family:"Script";color:var(--menta);}
+.foot{position:absolute;left:0;right:0;bottom:38px;text-align:center;font-size:19px;letter-spacing:.06em;color:var(--violeta)}
